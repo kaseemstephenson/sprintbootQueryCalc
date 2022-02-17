@@ -14,11 +14,6 @@ import org.springframework.stereotype.*;
 @RestController
 
 public class SpringbootTestingApplication {
-	@RequestMapping("/")
-    @ResponseBody
-    String home() {
-      return "Hello World!";
-    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootTestingApplication.class, args);
@@ -26,6 +21,12 @@ public class SpringbootTestingApplication {
 	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
 	return String.format("Hello %s!", name);
+}
+@GetMapping("/add")
+	public int x(@RequestParam(value = "x", defaultValue = "1") int x,
+	@RequestParam int y)
+	 {
+	return x +y;
 }
 
 }
